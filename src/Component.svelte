@@ -24,11 +24,9 @@
             <div>
                 {#if inj[key].type === 'string'}
                     <input class="px-3 py-1 rounded-md bg-gray-800 focus:outline-none focus:bg-gray-700" bind:value={inj[key].value}>
-                {/if}
-                {#if inj[key].type === 'boolean'}
+                {:else if inj[key].type === 'boolean'}
                     <input type="checkbox" class="px-1 py-1 rounded-md bg-gray-800 focus:outline-none focus:bg-gray-700" bind:checked={inj[key].value}>
-                {/if}
-                {#if inj[key].type === 'selector'}
+                {:else if inj[key].type === 'selector'}
                     <select class="px-3 py-1 rounded-md bg-gray-800 focus:outline-none focus:bg-gray-700" bind:value={inj[key].value}>
                         {#if Array.isArray(inj[key].options)}
                             {#each inj[key].options as option }
